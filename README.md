@@ -14,7 +14,7 @@ A staging directory for any tools needed to open and view the component data ima
 - ```def_colors```: define the color vectors to use for different variations of images
 - ```add_color```: add the colors to the 8 column image with *sinh* scaling to help  distinguish background from foreground. Returns an RGB image
   - Input: 
-    - ```im[array]: The image in vector column format [(mxn), l] 
+    - ```im[array]```: The image in vector column format [(mxn), l] 
       - l: layer of orginial image (3-dim)
       - m: rows of orginial image (1-dim)
       - n: columns of orginial image (2-dim)
