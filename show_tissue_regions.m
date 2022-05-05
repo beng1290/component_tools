@@ -3,16 +3,18 @@
 % blank(blue) in subsequent images (note blank is hard to see on the last
 % image)
 %% -----------------------------------------------------
-function show_tissue_regions()
+function show_tissue_regions(wd, folder, imname)
 %
 % image
 %
-wd = '\\BKI03\Lung_TMAs';
-folder = 'TMA_1314';
-imname = 'TMA_1314_Core[1,1,10]_[52191,21041]_component_data_w_seg.tif';
+if (nargin < 1)
+    wd = '\\halo1\TaubeLab\seg_comparisons';
+    folder = 'SegmentationImages';
+    imname = 'Liver_TMA_145_23_01.30.2020_[6435,55763]_component_data_w_seg.tif';
+end
 %
-mycol = def_colors();     
-[im, h, w] = myimread(wd, folder, imname);
+[im, h, w, l] = myimread(wd, folder, imname);
+mycol = def_colors(l);     
 %
 % add color to the image 
 %
@@ -26,12 +28,14 @@ imshow(uint8(imc)); shg
 impath = [wd,'\',folder,'\inform_data\Component_Tiffs'];
 full_image_name = fullfile(impath,imname);
 %
-imt = imread(full_image_name, 9);
+imt = imread(full_image_name, l+1);
 imb = zeros(size(imc));
 %
-for i1 = 0:2
+for i1 = 0:1
     %
-    % get the layer of interest (0: AE1AE3; 1:Stroma; 2:Blank)
+    % get the layer of interest (0:Good Tissue; 1:Blank) -- note this
+    % information is not always consistent. That information is not kept in
+    % w_seg tiffs
     %
     ii = imt == i1;
     imt2 = repmat(ii, 1, 1, 3);
