@@ -4,7 +4,7 @@ A staging directory for any tools needed to open and view the component data ima
 ## Functions
 #### ```show_tissue_regions()```
 - Description:
-  - Opens a select *component_data_w_seg.tif* image from the *Lung_TMAs*, does the color transformation, displays the full color image, then the color image with the different segmentation masks one at a time. All args are optional, will open an image from *\\halo1\Taubelab\seg_comparisons\SegmentationImages* by default.
+  - Opens a select *component_data_w_seg.tif* image from the *Lung_TMAs*, does the color transformation, displays the full color image, then the color image with the different segmentation masks one at a time. All args are optional, will open an image from *\\\\halo1\Taubelab\seg_comparisons\SegmentationImages* by default.
  - Input:
    - ```[wd]```: the ```<base>``` folder for a directory with a *Sample* subdirectory
    - ```[folder]```: the *Sample* directory that has an *inform_data\Component_Tiffs* directory with desired *_component_data_w_seg.tif* images to open
