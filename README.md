@@ -5,7 +5,12 @@ A staging directory for any tools needed to open and view the component data ima
 #### ```show_tissue_regions()```
 - Description:
   - Opens a select *component_data_w_seg.tif* image from the *Lung_TMAs*, does the color transformation, displays the full color image, then the color image with the different segmentation masks one at a time.
- 
+ - Input:
+   - ```[wd]```: the ```<base>``` folder for a directory with a *Sample* subdirectory
+   - ```[folder]```: the *Sample* directory that has an *inform_data\Component_Tiffs* directory with desired *_component_data_w_seg.tif* images to open
+   - ```[iname]```: full image name to open
+- Output:
+  -  displays 3 images, one full color image, one image with layer 1 tissue segmentation in red overlaid on the full color image, one image with layer 2 tissue segmentation in green on the full color image
 #### ```[im, h, w] = myimread(wd, folder, imname)```
 - Description:
   - Opens an 8 color component image in the *AstroPath* directory format and converts it to an 8 color vector to save memory and improve processing speed
