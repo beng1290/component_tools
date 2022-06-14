@@ -10,7 +10,7 @@ function show_tissue_regions(wd, folder, imname)
 if (nargin < 1)
     wd = '\\halo1\TaubeLab\seg_comparisons';
     folder = 'SegmentationImages';
-    imname = 'Liver_TMA_145_23_01.30.2020_[6435,55763]_component_data_w_seg.tif';
+    imname = 'Melanoma_TMA_1287_40_01.30.2020_[6327,55511]_component_data_w_seg.TIF';
 end
 %
 [im, h, w, l] = myimread(wd, folder, imname);
@@ -30,7 +30,7 @@ full_image_name = fullfile(impath,imname);
 %
 imt = imread(full_image_name, l+1);
 imb = zeros(size(imc));
-%
+%{
 for i1 = 0:1
     %
     % get the layer of interest (0:Good Tissue; 1:Blank) -- note this
@@ -54,5 +54,5 @@ for i1 = 0:1
     figure()
     imshow(uint8(imc2)); shg
 end
-%
+%}
 end

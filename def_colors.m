@@ -30,6 +30,18 @@ elseif l <= 10 && l > 7
         mycolab(1:l-2, :);
         0 0 0];
     %
+     mycolab = [0 0 0;
+        0 0 0;
+        0 0 0;
+        0 0 0;
+        0 0 0;
+        0 0 0;
+        0 0 0;
+        .9 .9 .9;];
+    mycol.all = [0 0 1;
+        mycolab(1:l-2, :);
+        0 0 0];
+    %
 else
     mycol.all = [];
 end
