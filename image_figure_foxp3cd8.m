@@ -3,19 +3,19 @@
 %% ---------------------------------------
 function image_figure_foxp3cd8()
 %
-wd = '\\bki04\Clinical_Specimen';
+wd = '\\bki-fs1\data02\Clinical_Specimen_2';
 %
-folder = {'M56_1','M3_1','M25_1'};
-xcoord = [43024 51726 48120];
-ycoord = [12502 13443 6107];
-include_dapi = 1; %logical (1) yes, (2) no
+folder = {'L12_1'};
+xcoord = [51721];
+ycoord = [10358];
+include_dapi = 0; %logical (1) yes, (2) no
 ss= 15; % pixel resampling (*15)
 %
 % defines color vectors;can be edited but default are normal saturated
 %
 [mycol] = foxp3cd8_colors();
 %
-for im_count = 1:length(xcoord)
+for im_count = 1
     %
     % minor color edits for version 2
     % text labels commented out below and not used 
@@ -49,7 +49,7 @@ for im_count = 1:length(xcoord)
         vq = prepare_image3(im2,1004,1344, ss);
     end
     % comment out to remove
-    [vq] = scale_bar(vq , 5, .5, ss/5);
+    %[vq] = scale_bar(vq , 5, .5, ss/5);
     %
     s= size(vq);
     %{
@@ -61,7 +61,7 @@ for im_count = 1:length(xcoord)
     %
     % display
     %
-    subplot(2,1,2)
+    subplot(3,1,3)
     imshow(uint8(vq));
     %
     % 540 (CD8, yellow)
@@ -91,7 +91,37 @@ for im_count = 1:length(xcoord)
     %
     % display
     %
-    subplot(2,1,1)
+    subplot(3,1,2)
+    imshow(uint8(vq));
+    %
+    % 540, 570 (CD8, yellow)
+    % 
+    [im2] = foxp3cd8_add_color(im, mycol, color_scale, include_dapi, 3, dapi);
+    %
+    % each prepare image cuts out a different region with coordinates
+    % defined in the function themselves 
+    %
+    if im_count == 1
+        vq = prepare_image1(im2,1004,1344,ss);
+    elseif im_count == 2
+        vq = prepare_image2(im2,1004,1344,ss);
+    elseif im_count == 3
+        vq = prepare_image3(im2,1004,1344,ss);
+    end
+     %
+    %[vq] = scale_bar(vq , 5, .5, ss/5);
+    %
+    s= size(vq);
+    %{
+    vq = insertText(vq, [0, s(1)], 'CD8',...
+    'BoxColor',[0, 0, 0], 'TextColor', [255,255,0],...
+    'BoxOpacity',0, 'FontSize', text_size, 'Font','Arial Bold'...
+    ,'AnchorPoint','LeftBottom');
+    %}
+    %
+    % display
+    %
+    subplot(3,1,1)
     imshow(uint8(vq));
     if include_dapi == 1
         print(XX, ['figure_4_image_foxp3cd8_cell_',num2str(im_count),'.png'],'-dpng','-r780', '-cmyk')    

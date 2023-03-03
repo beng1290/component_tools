@@ -40,14 +40,27 @@ b2 = [2 3 2.5;
     2.5 4 3;
     1.75 3.5 3];
 %}
-if color_count == 1
+if color_count ==3 
+    %
     mycol_ab = mycol.cd8;
-else
+    im2 = a2(color_scale, color_count) * ...
+        asinh(b2(color_scale, color_count) * im) * mycol_ab;
     mycol_ab = mycol.foxp3;
+    im3 = a2(color_scale, color_count) * ...
+        asinh(b2(color_scale, color_count) * im) * mycol_ab;
+    %
+    im2 = im2 + im3;
+else 
+    if color_count == 1
+        mycol_ab = mycol.cd8;
+    else
+        mycol_ab = mycol.foxp3;
+    end
+    %
+    im2 = a2(color_scale, color_count) * ...
+        asinh(b2(color_scale, color_count) * im) * mycol_ab;
+    %
 end
-%
-im2 = a2(color_scale, color_count) * ...
-    asinh(b2(color_scale, color_count) * im) * mycol_ab;
 %
 if include_dapi == 1
     im3 = a1(dapi) * asinh(b1(dapi) * im) * mycol.dapi;

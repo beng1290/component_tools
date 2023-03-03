@@ -5,7 +5,7 @@ imi = reshape(imi,H,W,3);
 %
 % select the cell
 %
-imo = imi(657:687,195:222,:);
+imo = imi(760:780,1112:1132,:);
 %
 % increase the resolution
 %
