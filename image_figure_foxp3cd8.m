@@ -10,7 +10,7 @@ xcoord = [51721];
 ycoord = [10358];
 include_dapi = 0; %logical (1) yes, (2) no
 ss= 15; % pixel resampling (*15)
-color_scale = 1
+color_scale = 3
 %
 % defines color vectors;can be edited but default are normal saturated
 %
