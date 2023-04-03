@@ -43,11 +43,11 @@ b2 = [2 3 2.5;
 if color_count ==3 
     %
     mycol_ab = mycol.cd8;
-    im2 = a2(color_scale, color_count) * ...
-        asinh(b2(color_scale, color_count) * im) * mycol_ab;
+    im2 = a2(color_scale, 3) * ...
+        asinh(b2(color_scale, 3) * im) * mycol_ab;
     mycol_ab = mycol.foxp3;
-    im3 = a2(color_scale, color_count) * ...
-        asinh(b2(color_scale, color_count) * im) * mycol_ab;
+    im3 = a2(color_scale, 2) * ...
+        asinh(b2(color_scale, 2) * im) * mycol_ab;
     %
     im2 = im2 + im3;
 else 
