@@ -22,6 +22,6 @@ b3 = 2;
 im4 = a3 * asinh(b3 * im) * mycol.foxp3;
 im4 = reshape(im4,1004,1344,3);
 %
-im4 = im2 + im4;
+im2 = im2 + im4;
 %
 end
