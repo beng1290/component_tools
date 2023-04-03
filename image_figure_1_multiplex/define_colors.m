@@ -16,6 +16,15 @@ function mycol = define_colors()
         0 1 1;
         1 0 1;
         0 0 0]; 
+        
+        mycol.notumorfoxp3= [0 0 1;
+        0 1 0;
+        1 1 0;
+        0 0 0;
+        0 0 0;
+        0 1 1;
+        1 0 1;
+        0 0 0]; 
     %
 mycol.cd8 = [0 0 0;
         0 0 0;
